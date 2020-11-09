@@ -6,10 +6,13 @@
     <th>Operational</th>
     <th>Orbit Type</th>
     <th>Launch Date</th>
+    <!-- <th>Space Debris Warning</th> -->
   </tr>
   <tr *ngFor="let satellite of satellites">
     <td>{{ satellite.name }}</td>
-    <td>{{ satellite.type }}</td>
+    <td [class.warning]="satellite.shouldShowWarning()">
+      {{ satellite.type }}
+    </td>
     <td>{{ satellite.operational }}</td>
     <td>{{ satellite.orbitType }}</td>
     <td>{{ satellite.launchDate }}</td>
